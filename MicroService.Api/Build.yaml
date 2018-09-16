@@ -1,3 +1,7 @@
-version: 1.0-preview-1
+# Build container image for this app using Azure Pipelines
+# http://docs.microsoft.com/azure/devops/pipelines/languages/docker?view=vsts
+pool:
+  vmImage: 'Ubuntu 16.04'
+
 steps:
-  - build: -t {{.Run.Registry}}/micro-service-01:latest .
+- script: az acr build --registry $(acr_name) --image $(image_name):$(Build.BuildId) .
