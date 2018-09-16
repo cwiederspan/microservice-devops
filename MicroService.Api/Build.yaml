@@ -1,0 +1,3 @@
+version: 1.0-preview-1
+steps:
+  - build: -t {{.Run.Registry}}/micro-service-01:latest .
