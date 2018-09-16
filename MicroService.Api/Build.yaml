@@ -3,9 +3,15 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
-steps:
+#steps:
+#  inputs:
+#    azureSubscription: 'Azure-Subscription'
+#- script: |
+#    az acr login --name $(acr_name) --password $(acr_password)
+#    az acr build --registry $(acr_name) --image $(image_name):$(Build.BuildId) .
+
+steps: 
+- task: AzureCLI@1
   inputs:
     azureSubscription: 'Azure-Subscription'
-- script: |
-    az acr login --name $(acr_name) --password $(acr_password)
-    az acr build --registry $(acr_name) --image $(image_name):$(Build.BuildId) .
+- script: az acr build --registry $(acr_name) --image $(image_name):$(Build.BuildId) .
