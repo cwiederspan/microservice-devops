@@ -4,6 +4,8 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
+  inputs:
+    azureSubscription: 'Azure-Subscription'
 - script: |
     az acr login --name $(acr_name) --password $(acr_password)
     az acr build --registry $(acr_name) --image $(image_name):$(Build.BuildId) .
