@@ -1,14 +1,13 @@
 FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
-EXPOSE 58598
-EXPOSE 44301
+EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["MicroService.Api/MicroService.Api.csproj", "MicroService.Api/"]
-RUN dotnet restore "MicroService.Api/MicroService.Api.csproj"
+COPY ["MicroService.Api.csproj", ""]
+RUN dotnet restore "MicroService.Api.csproj"
 COPY . .
-WORKDIR "/src/MicroService.Api"
+WORKDIR "/src"
 RUN dotnet build "MicroService.Api.csproj" -c Release -o /app
 
 FROM build AS publish
