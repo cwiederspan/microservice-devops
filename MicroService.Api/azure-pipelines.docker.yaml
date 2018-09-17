@@ -13,7 +13,8 @@ steps:
     #dotnet build --configuration $(buildConfiguration)
     #dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
     #dotnet publish --configuration $(buildConfiguration) --output out
-    docker build -f Dockerfile -t $(acr_name).azurecr.io/$(image_name) ./..
+    docker build -t $(acr_name).azurecr.io/$(image_name) .
+    docker list
     docker login -u $(acr_name) -p $pswd $(acr_name).azurecr.io
     docker push $(acr_name).azurecr.io/$(image_name)
   env:
