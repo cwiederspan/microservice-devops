@@ -19,3 +19,8 @@ steps:
     docker push $(acr_name).azurecr.io/$(image)
   env:
     pswd: $(acr_password)
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'Terraform'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'

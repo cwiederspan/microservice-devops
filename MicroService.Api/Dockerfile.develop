@@ -1,0 +1,15 @@
+FROM microsoft/dotnet:2.1-sdk
+ARG BUILD_CONFIGURATION=Debug
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+EXPOSE 80
+
+WORKDIR /src
+COPY ["MicroService.Api/MicroService.Api.csproj", "MicroService.Api/"]
+
+RUN dotnet restore "MicroService.Api/MicroService.Api.csproj"
+COPY . .
+WORKDIR "/src/MicroService.Api"
+RUN dotnet build --no-restore "MicroService.Api.csproj" -c $BUILD_CONFIGURATION
+
+ENTRYPOINT ["dotnet", "run", "--no-restore", "--no-build", "--no-launch-profile", "-c", "$BUILD_CONFIGURATION", "--"]
