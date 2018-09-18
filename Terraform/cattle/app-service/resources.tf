@@ -3,7 +3,7 @@ variable "resource_group_name" {
 }
 
 variable "app_service_name" { 
-  #default = "mhug-ms01-20180918"
+  #default = "mhug-app-ms01-20180918"
 }
 
 variable "location" {
