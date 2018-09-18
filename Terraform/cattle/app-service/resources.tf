@@ -56,7 +56,7 @@ resource "azurerm_app_service" "app" {
   site_config {
     always_on         = true
     linux_fx_version  = "DOCKER|${var.acr_name}.azurecr.io/${var.image_name}:${var.image_tag}"
-    default_documents = [ "Index.html" ]
+    #default_documents = [ "Index.html" ]
   }
 
   app_settings {
