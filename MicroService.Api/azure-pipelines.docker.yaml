@@ -5,7 +5,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  imageName: '$(image_name):$(Build.BuildId)'
+  image: '$(image_name):$(Build.BuildId)'
   # define two more variables dockerId and dockerPassword in the build pipeline in UI
 
 steps:
@@ -13,9 +13,9 @@ steps:
     #dotnet build --configuration $(buildConfiguration)
     #dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
     #dotnet publish --configuration $(buildConfiguration) --output out
-    docker build -t $(acr_name).azurecr.io/$(image_name) ./MicroService.Api
+    docker build -t $(acr_name).azurecr.io/$(image) ./MicroService.Api
     docker image list
     docker login -u $(acr_name) -p $pswd $(acr_name).azurecr.io
-    docker push $(acr_name).azurecr.io/$(image_name)
+    docker push $(acr_name).azurecr.io/$(image)
   env:
     pswd: $(acr_password)
