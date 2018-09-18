@@ -45,17 +45,3 @@ functionality in Visual Studio. The code itself is fairly irrelevant to the disc
 [Overview](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview-microservices)  
 [Building Microservices Book](http://shop.oreilly.com/product/0636920033158.do)  
 [Sam Newman Video](https://www.youtube.com/watch?v=PFQnNFe27kU)  
-
-
-
-
-
-
-`az login`
-
-
-https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-service-principal
-`az ad sp create-for-rbac --name <YOUR_SP_NAME>`
-
-
-https://github.com/MicrosoftDocs/pipelines-dotnet-core
