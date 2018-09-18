@@ -27,4 +27,4 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    ArtifactName: Drop
+    ArtifactName: Artifacts
