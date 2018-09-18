@@ -1,9 +1,9 @@
 variable "resource_group_name" { 
-  default = "mhug-devops-20180918"
+  #default = "mhug-devops-20180918"
 }
 
 variable "aci_service_name" { 
-  default = "mhug-aci-ms01-20180918"
+  #default = "mhug-aci-ms01-20180918"
 }
 
 variable "location" {
@@ -11,17 +11,17 @@ variable "location" {
 }
 
 variable "acr_name" { 
-  default = "mhugacr20180918"
+  #default = "mhugacr20180918"
 }
 
 variable "acr_password" { }
 
 variable "image_name" { 
-  default = "microservice-api-docker-01"
+  #default = "microservice-api-docker-01"
 }
 
 variable "image_tag" { 
-  default = "170"
+  #default = "170"
 }
 
 
