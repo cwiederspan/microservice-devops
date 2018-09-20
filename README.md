@@ -11,7 +11,7 @@
 
 Based on [this guidance](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-service-principal), we will start by setting up a Service Principal that we'll use when creating an Azure AKS cluster.
 
-`az login`
+`az login`  
 `az ad sp create-for-rbac --name <YOUR_SP_NAME>`
 
 You'll want to make a copy of the results, specifically the appId and password, as shown below.
@@ -25,9 +25,9 @@ We will use Terraform to create a Resource Group, Azure Container Registry and a
 and the Azure Resource Providers that it provides.
 
 ```
-cd Terraform/pets
-terraform init
-terraform apply
+cd Terraform/pets  
+terraform init  
+terraform apply  
 ```
 
 You can expect this process to take between 10 to 15 minutes, mostly because AKS takes a while to provision in Azure.
@@ -39,8 +39,8 @@ functionality in Visual Studio. The code itself is fairly irrelevant to the disc
 
 ## Key Files
 
-[Terraform Pets](/Terraform/pets)
-[Terraform Cattle](/Terraform/cattle)
+[Terraform Pets](/Terraform/pets)  
+[Terraform Cattle](/Terraform/cattle)  
 
 ## Microservices Reading
 [Overview](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview-microservices)  
