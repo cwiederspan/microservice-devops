@@ -18,13 +18,17 @@ variable "service_principal_name" { }
 
 variable "service_principal_pwd" { }
 
+variable "random" {
+  # default = "20190222"  
+}
+
 resource "azurerm_resource_group" "group" {
-  name     = "${var.resource_group_name}"
+  name     = "${var.container_registry_name}-${var.random}"
   location = "${var.location}"
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = "${var.container_registry_name}"
+  name                = "${var.container_registry_name}${var.random}"
   resource_group_name = "${azurerm_resource_group.group.name}"
   location            = "${azurerm_resource_group.group.location}"
   admin_enabled       = true
@@ -32,10 +36,10 @@ resource "azurerm_container_registry" "acr" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "${var.aks_service_name}"
+  name                = "${var.aks_service_name}-${var.random}"
   resource_group_name = "${azurerm_resource_group.group.name}"
   location            = "${azurerm_resource_group.group.location}"
-  dns_prefix          = "${var.aks_service_name}"
+  dns_prefix          = "${var.aks_service_name}-${var.random}"
 
   agent_pool_profile {
     name    = "agentpool"
