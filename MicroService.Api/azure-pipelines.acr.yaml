@@ -14,6 +14,6 @@ steps:
 - task: AzureCLI@1
   displayName: 'Azure CLI'
   inputs:
-    azureSubscription: 'CDW - Microsoft AIRS 01 (b9c770d1-cde9-4da3-ae40-95ce1a4fac0c)'
+    azureSubscription: 'Azure-Connection-Endpoint'
     scriptLocation: inlineScript
     inlineScript: 'az acr build --registry $(acr_name) --image $(image_name):$(Build.BuildId) .'
